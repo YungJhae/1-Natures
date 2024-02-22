@@ -1,18 +1,19 @@
+/** @format */
+
 @mixin clearfix {
-    &::after{
-        content: "";
-        display: table;
-        clear: both;
-    }
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 }
 
 @mixin absCenter {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-
 
 //MEDIA QUERY MANAGER
 /*
@@ -22,6 +23,7 @@
 [1200 - 1800] is where our normal systle apply
 1800px + :  Big Desktop
 
+$breakpoint argument choices: 
 - Phone
 - Tablet-portrait
 - Tablet-Landscape
@@ -34,15 +36,23 @@ ORDER: Base + Typography > general layout + grid > page layout > components
 
 @mixin respond($breakpoint) {
   @if $breakpoint == phone {
-    @media only screen and (max-width: 37.5em){ @content}; //600px
-  }  
+    @media only screen and (max-width: 47.9375em) {
+      @content;
+    } //767px
+  }
   @if $breakpoint == tab-port {
-    @media only screen and (max-width: 56.25em){ @content};  //900px
-  }  
+    @media only screen and (max-width: 63.9375em) {
+      @content;
+    } //1023px
+  }
   @if $breakpoint == tab-land {
-    @media only screen and (max-width: 75em){ @content};   //1200px
-  }  
+    @media only screen and (max-width: 75em) {
+      @content;
+    } //1200px
+  }
   @if $breakpoint == big-desktop {
-    @media only screen and (max-width: 112.5em){ @content};  //1800px
-  }  
+    @media only screen and (max-width: 100em) {
+      @content;
+    } //1600px
+  }
 }
